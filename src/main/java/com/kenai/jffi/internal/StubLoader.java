@@ -136,6 +136,8 @@ public class StubLoader {
         AARCH64,
         /** MIPS 64-bit little endian */
         MIPS64EL,
+        /** LoongArch 64-bit little endian */
+        LOONGARCH64,
         /** Unknown CPU */
         UNKNOWN;
 
@@ -200,7 +202,9 @@ public class StubLoader {
             return CPU.ARM;
         } else if (Util.equalsIgnoreCase("aarch64", archString, LOCALE)) {
             return CPU.AARCH64;
-        }
+        } else if (Util.equalsIgnoreCase("loongarch64", archString, LOCALE)) {
+	    return CPU.LOONGARCH64;
+	}
 
         // Try to find by lookup up in the CPU list
         for (CPU cpu : CPU.values()) {
